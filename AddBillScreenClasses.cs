@@ -10,15 +10,23 @@ namespace Bill_Manager_App
     {
         public AddBillScreen()
         {
-            output = new AddBillScreenOutput();
             input = new AddBillScreenInput();
+            output = new AddBillScreenOutput(input);
         }
     }
 
     class AddBillScreenOutput : IOutput
     {
+        private ScreenOptions screenOptions;
+
+        public AddBillScreenOutput(Input input)
+        {
+            screenOptions = new ScreenOptions(input);
+        }
+
         public void Print()
         {
+            screenOptions.Print();
             Console.WriteLine("Add Bill Screen.");
         }
     }
@@ -27,8 +35,8 @@ namespace Bill_Manager_App
     {
         public AddBillScreenInput()
         {
-            validKeys.Add(new EscapeKey(new QuitApplicationCommand()));
-            validKeys.Add(new F12Key(new ChangeToDefaultScreenCommand()));
+            validKeys.Add(new EscapeKey(new QuitApplicationCommand(), "Quit"));
+            validKeys.Add(new F12Key(new ChangeToDefaultScreenCommand(), "Previous Screen"));
         }
     }
 }

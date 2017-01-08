@@ -16,6 +16,7 @@ namespace Bill_Manager_App
             validKeys = new List<InputKey>();
         }
 
+        public List<InputKey> ValidKeys { get { return validKeys; } }
         public ICommand InputCommand { get { return pressedKey.KeyCommand; } }
 
         public void HandleInput()

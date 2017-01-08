@@ -10,15 +10,24 @@ namespace Bill_Manager_App
     {
         public DefaultScreen()
         {
-            output = new DefaultScreenOutput();
             input = new DefaultScreenInput();
+            output = new DefaultScreenOutput(input);
+
         }
     }
 
     class DefaultScreenOutput : IOutput
     {
+        private IOutput optionScreen;
+
+        public DefaultScreenOutput(Input input)
+        {
+            optionScreen = new ScreenOptions(input);
+        }
+
         public void Print()
         {
+            optionScreen.Print();
             Console.WriteLine("This is the default screen.");
             Console.WriteLine();
             printAllBills();
@@ -37,8 +46,8 @@ namespace Bill_Manager_App
     {
         public DefaultScreenInput()
         {
-            validKeys.Add(new EscapeKey(new QuitApplicationCommand()));
-            validKeys.Add(new EnterKey(new ChangeToAddBillScreenCommand()));
+            validKeys.Add(new EscapeKey(new QuitApplicationCommand(), "Quit"));
+            validKeys.Add(new EnterKey(new ChangeToAddBillScreenCommand(), "Add Bill"));
         }
     }
 }

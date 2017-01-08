@@ -8,9 +8,21 @@ namespace Bill_Manager_App
 {
     class EnterKey : InputKey
     {
+
         public EnterKey(ICommand command) : base(command)
         {
+            initSelf();
+        }
+
+        public EnterKey(ICommand command, string cmdDes) : base(command, cmdDes)
+        {
+            initSelf();
+        }
+
+        private void initSelf()
+        {
             key = ConsoleKey.Enter;
+            name = "Enter";
         }
     }
 
@@ -18,7 +30,18 @@ namespace Bill_Manager_App
     {
         public F12Key(ICommand command) : base(command)
         {
+            initSelf();
+        }
+
+        public F12Key(ICommand command, string cmdDes) : base(command, cmdDes)
+        {
+            initSelf();
+        }
+
+        private void initSelf()
+        {
             key = ConsoleKey.F12;
+            name = "F12";
         }
     }
 
@@ -26,7 +49,18 @@ namespace Bill_Manager_App
     {
         public EscapeKey(ICommand command) : base(command)
         {
+            initSelf();
+        }
+
+        public EscapeKey(ICommand command, string cmdDes) : base(command, cmdDes)
+        {
+            initSelf();
+        }
+
+        private void initSelf()
+        {
             key = ConsoleKey.Escape;
+            name = "Escape";
         }
     }
 }
