@@ -20,6 +20,7 @@ namespace Bill_Manager_App
         public void Print()
         {
             Console.WriteLine("This is the default screen.");
+            Console.WriteLine();
             printAllBills();
         }
 
@@ -27,9 +28,7 @@ namespace Bill_Manager_App
         {
             foreach (BillData bill in BillDatabase.Instance.Database)
             {
-                Console.WriteLine(bill.Name);
-                Console.WriteLine(bill.MonthlyAmountOwed());
-                Console.WriteLine();
+                bill.PrintBill();
             }
         }
     }
