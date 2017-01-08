@@ -14,6 +14,10 @@ namespace Bill_Manager_App
 
         private MainLoop()
         {
+            // For Testing
+            BillData testBill = new BillData("Test Bill", 43.20);
+            BillDatabase.Instance.AddBill(testBill); 
+
             currentScreen = new DefaultScreen();
         }
 

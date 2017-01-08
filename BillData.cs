@@ -29,6 +29,12 @@ namespace Bill_Manager_App
             monthlyAmountOwed = monthlyOwed;
         }
 
+        public BillData(string name, double monthlyOwed)
+        {
+            this.name = name;
+            monthlyAmountOwed = monthlyOwed;
+        }
+
         public BillData() {}
 
         public string Name { get { return name; } set { name = value; } }

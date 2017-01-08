@@ -9,7 +9,7 @@ namespace Bill_Manager_App
     class BillDatabase
     {
         private static BillDatabase instance;
-        private List<BillData> database;
+        private List<BillData> database = new List<BillData>();
 
         private BillDatabase() {}
 
@@ -23,12 +23,11 @@ namespace Bill_Manager_App
             }
         }
 
-        public List<BillData> Database
+        public List<BillData> Database { get { return database; } }
+
+        public void AddBill(BillData bill)
         {
-            get
-            {
-                return database;
-            }
+            database.Add(bill);
         }
     }
 }
