@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bill_Manager_App
 {
-    class Program
+    interface IOutput
     {
-        static void Main(string[] args)
-        {
-            MainLoop.Instance.Run();
-        }
+        void Print();
+    }
+
+    interface ICommand
+    {
+        void Execute();
     }
 }
